@@ -1,17 +1,17 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsAlphanumeric, IsBoolean, IsNotEmpty, MaxLength, IsEmail, IsPhoneNumber, MinLength, Matches, IsString} from "class-validator";
 
-export class CreatePhotoDto {
+export class CreateMaterialDto {
     @ApiProperty({
-        default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxjYbpapps17hZGfCUCTuTSf_lCosIJIQmwva0ErzIFeBlV7piyMHSoFJ0HzXwpTtEl0&usqp=CAU"
+        default: "Teak Wood"
     })
     @IsNotEmpty()
-    url: string;
+    @MaxLength(50)
+    name: string;
 
     @ApiProperty({
-        default: "penguin"
+        default: "Unique texture"
     })
     @IsNotEmpty()
     description: string;
-
 }

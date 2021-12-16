@@ -7,7 +7,7 @@ import { Material } from './material.entity';
 @Entity()
 export class Craft {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column({ length: 128 })
   name: string;
@@ -31,9 +31,9 @@ export class Craft {
   @ManyToOne(() => Photo)
   thumbnail: Photo;
 
-  @Column({ type: 'timestamp' })
-  timestamp: Date;
+  @Column({ type: 'timestamp', default: () => `now()`, nullable: false })
+  timestamp?: Date;
 
-  @Column()
-  disabled: boolean;
+  @Column({default: false})
+  disabled?: boolean;
 }
