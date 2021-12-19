@@ -24,4 +24,9 @@ export class PhotosController {
     return this.photosService.findOne(+id);
   }
 
+  @Delete(':id')
+  remove(@Param('id') id: number) {
+    return this.photosService.remove(+id);
+  }
+
 }

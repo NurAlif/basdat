@@ -19,4 +19,9 @@ export class PhotosService {
   findOne(id: number): Promise<Photo> {
     return this.photoRepository.findOne(id);
   }
+
+  async remove(id: number): Promise<Photo> {
+    let photo: Photo = await this.photoRepository.findOne(id);
+    return this.photoRepository.remove(photo);
+  }
 }

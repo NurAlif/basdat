@@ -166,6 +166,6 @@ export class CraftsService {
   async remove(id: number) {
     let craft: Craft = await this.findOne(id);
     craft.disabled = true;
-    return;
+    return this.craftRepository.save(craft);
   }
 }
